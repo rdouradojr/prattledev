@@ -3,38 +3,191 @@
 		<title>{{name}}'s Page</title>
     	<link rel="stylesheet" type="text/css" href="css/main.css">
 	<style>
-	#menu ul {
-		margin: 0px;
-		padding: 0px;
-		list-style-type: none;
+	
+	#content article img { 
+	max-width: 100%;
+	height: auto;
+	}
+	#content .right {
+	float: right;
+	margin: 0 0 20px 20px;
+	}
+	#content .left {
+	float: left;
+	margin: 0 20px 20px 0;
+	}
+	#content img.border {
+	padding: 9px;
+	background: #FFF;
+	border: 1px solid #E5E5E5;
+	-webkit-box-shadow: 1px 2px 3px #F5F5F5;
+	   -moz-box-shadow: 1px 1px 3px #F5F5F5;
+	        box-shadow: 1px 1px 3px #F5F5F5;
+	}
+	#content .img-wrap,
+	#content .recipe .photo {
+			max-width: 100%;
+			margin-bottom: 20px;
+}
+	#content .recipe .photo img { margin-bottom: 0; }
+	#content .caption {
+	display: block;
+	padding-top: 5px;
+	font-size: .75em;
+	font-style: italic;
+	color: #AAA;
+}
+	#content.blog article img { margin-bottom: 20px; }
+	#content.blog article .img-wrap img { margin-bottom: 0; }
+	#content img.border.large { width: 95%; }
+	#content article a img {
+	-webkit-transition: opacity .2s ease;
+	   -moz-transition: opacity .2s ease;
+	     -o-transition: opacity .2s ease;
+	        transition: opacity .2s ease;
 		}
-	#menu a{	
-		display: block;
-		width: 8em;
-		color: white;
-		background-color: #60A0A0;
-		text-decoration: none;
-		font-size: 150%;
-		text-align: center;
-		}
-	#menu a:hover {
-		background-color: #6666AA;
-		display:inline-block;
-		padding: 10px;
-		}
-	#menu li{
-		float:left;
-		display: inline;
-		margin-right: .05em;
-		}
-     #outer {
-      width: 100%;
-      text-align: center;
-        }
-
-    #inner {
-      display: inline-block;
-        }
+	#content article a:hover img { opacity: .75; }
+/* ----- FEATURED ----- */
+	#featured {
+	position: relative;
+	width: 100%;
+	height: 510px;
+	}
+	#featured #slides {
+	width: 712px; 
+	height: 446px;
+	overflow: hidden;
+	}
+	#featured section {
+	position: relative;
+	width: 896px;
+	}
+	#featured section img {
+	position: absolute;
+	left: -92px; 
+	width: 100%;
+	}
+/* hide slides when js is disabled */
+	#featured #slide-2,
+	#featured #slide-3,
+	#featured #slide-4 {
+	display: none;
+}
+	#featured section h1,
+	#featured section h2 {
+	position: absolute;
+	left: 0;
+	font-style: italic;
+}
+	#featured section.alt h1,
+	#featured section.alt h2 {
+	left: auto;
+	right: 184px;
+}
+	#featured section h1 {
+	top: 285px;
+	padding: 10px 24px 15px;
+	color: #222;
+	background: #FFF;
+	font-size: 1.5em;
+}
+	#featured section h2 {
+	top: 334px;
+	padding: 8px 24px 12px;
+	color: #E9E9E9;
+	font-weight: normal;
+	font-size: 1em;
+	background: #111;
+}
+	#featured section a h1,
+	#featured section a h2 {
+	-webkit-transition: opacity .2s ease;
+	   -moz-transition: opacity .2s ease;
+	     -o-transition: opacity .2s ease;
+	        transition: opacity .2s ease; 
+}
+#featured section a:hover h1,
+#featured section a:hover h2 {
+	opacity: .8;
+}
+#featured section .credit {
+	position: absolute;
+	right: 194px;
+	top: 417px;
+	padding: 4px 8px 6px;
+	font-size: .5em;
+	color: #555;
+	background: #F5F5F5;
+	background: rgba(255,255,255,.5);
+	text-shadow: 0 1px 0 rgba(255,255,255,.5);
+	-webkit-border-radius: 3px;
+	   -moz-border-radius: 3px;
+	        border-radius: 3px;
+}
+#featured section .credit a {
+	border-bottom: none;
+	background: none;
+	color: #555;
+}
+#featured section .credit a:hover { color: #EC6635; }
+.Ballin{
+color: blue;
+font-size: 400%;
+ font-family: 'Varela Round', sans-serif;
+ text-align: center;
+}
+.testClass {
+    color: blue;
+    font-size: 200%;
+    font-weight: bold;
+    font-family: 'fantasy', copperplate;
+    
+    border: 10px white;
+    padding: 20px;
+    margin: 100px;
+}
+.lax {
+	color: blue;
+    font-size: 75%;
+    font-family: 'fantasy', copperplate;
+    
+    border: 10px white;
+    padding: 20px;
+    margin: 100px;
+}
+.center {
+    margin-left: auto;
+    margin-right: auto;
+    width: 60%;
+}
+#menu ul {
+	margin: 0px;
+	padding: 0px;
+	list-style-type: none;
+	
+}
+#menu a{
+	display: block;
+	width: 8em;
+	color: white;
+	background-color: #60A0A0;
+	text-decoration: none;
+	font-size: 150%;
+	text-align: center;
+}
+#menu a:hover {
+	background-color: #6666AA;
+	display:inline-block;
+	padding: 10px;
+}
+#menu li{
+	float:left;
+	display: inline;
+	margin-right: .05em;
+}
+   </style>
+   
+</head>
    	</style>
     	</head>
     	
