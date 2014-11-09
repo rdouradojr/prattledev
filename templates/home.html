@@ -4,14 +4,14 @@
     	<link rel="stylesheet" type="text/css" href="css/main.css">
     	<html>
 	<style>
-
-	menu ul {
+	<h1>{{name}}</h1>
+	#menu ul {
 		margin: 0px;
 		padding: 0px;
 		list-style-type: none;
 		}
 
-	menu a{	
+	#menu a{	
 		display: block;
 		width: 8em;
 		color: white;
@@ -19,10 +19,10 @@
 		text-decoration: none;
 		text-align: center;
 		}
-	menu a:hover {
+	#menu a:hover {
 		background-color: #6666AA;
 		}
-	menu li{
+	#menu li{
 		float:left;
 		margin-right: .05em;
 		}
@@ -38,7 +38,7 @@
 	<li> <a href = "index.html" > Create A Forum </a> </li>
 	<li> <a href = "index.html" > Popular Forums </a> </li>
 	</div>
-		<h1>{{name}}</h1>
+		
 		<div>
 		 <div style = 'float:right; width: 45%'>{% for message in messages %}
 		 {{message.person}}: {{message.content}}
