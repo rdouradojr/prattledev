@@ -43,27 +43,34 @@
 	</div>
 		
 		<div>
-		 <div style = 'float:right; width: 45%'>{% for message in messages %}
-		 {{message.person}}: {{message.content}}
+		 <div style = 'float:right; width: 45%'>
+			 {% for message in messages %}
+	     {% if message.team == 'TeamB' %}
+		 {{message.person}}: {{message.content}} {{message.team}}
+	     
 		 <hr />
+         {% endif %}
 		 {% endfor %}
 		 
 		 <form action='/' method ='post' enctype = 'multipart/form-data'>
 			 Name: <input type= 'text' name='message'>
 			 Message:<input type='text' name='moniker'>
-			 <input type='hidden' name= 'team' value = 'Lakers'>
+			 <input type='hidden' name='team' value='TeamB'>
 			 <input type='submit' name='submit' value='Submit'>
 		</form>
 		</div>
 		<div style = 'float:left; width: 45%'>{% for message in messages %}
-		 {{message.person}}: {{message.content}}
+	     {% if message.team == 'TeamA' %}
+		 {{message.person}}: {{message.content}} {{message.team}}
+	     
 		 <hr />
+         {% endif %}
 		 {% endfor %}
 		 
 		 <form action='/' method ='post' enctype = 'multipart/form-data'>
 			 Name: <input type= 'text' name='message'>
 			 Message:<input type='text' name='moniker'>
-			 <input type='hidden' name='team' value='Celtics'>
+			 <input type='hidden' name='team' value='TeamA'>
 			 <input type='submit' name='submit' value='Submit'>
 		</form>
 		</div>
