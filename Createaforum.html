@@ -27,6 +27,14 @@
 		display: inline;
 		margin-right: .05em;
 		}
+     #outer {
+      width: 100%;
+      text-align: center;
+        }
+
+    #inner {
+      display: inline-block;
+        }
    	</style>
     	</head>
     	
@@ -45,6 +53,7 @@
 	</div>
 		<div> <p> </p>
 		</div>
+        <div>
 		<div>
 		 <div style = 'float:right; width: 50%'>
 			 {% for message in messages %}
@@ -78,8 +87,8 @@
 		</form>
 		</div>
 		</div>
-		<div style="align:center">
-			<h1>&copyMaroonTigers</h1>
+		<div style="width:50%">
+            <div><p style="text-alignment:center;  ">&copyMaroonTigers</p></div>
 		</div>
 		
 	   </body>
