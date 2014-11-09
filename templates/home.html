@@ -47,7 +47,7 @@
 		 <div style = 'float:right; width: 45%'>
 			 {% for message in messages %}
 	     {% if message.team == 'TeamB' %}
-		 {{message.person}}: {{message.content}} {{message.team}}
+		 {{message.content}} : {{message.person}}
 	     
 		 <hr />
          {% endif %}
@@ -62,7 +62,7 @@
 		</div>
 		<div style = 'float:left; width: 45%'>{% for message in messages %}
 	     {% if message.team == 'TeamA' %}
-		 {{message.person}}: {{message.content}} {{message.team}}
+		 {{message.content}} : {{message.person}}
 	     
 		 <hr />
          {% endif %}
