@@ -46,7 +46,7 @@
 		<div> <p> </p>
 		</div>
 		<div>
-		 <div style = 'float:right; width: 45%'>
+		 <div style = 'float:right; width: 50%'>
 			 {% for message in messages %}
 	     {% if message.team == 'TeamB' %}
 		 {{message.content}} : {{message.person}}
@@ -62,7 +62,7 @@
 			 <input type='submit' name='submit' value='Submit'>
 		</form>
 		</div>
-		<div style = 'float:left; width: 45%'>{% for message in messages %}
+		<div style = 'float:left; width: 50%'>{% for message in messages %}
 	     {% if message.team == 'TeamA' %}
 		 {{message.content}} : {{message.person}}
 	     
