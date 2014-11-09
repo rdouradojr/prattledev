@@ -6,7 +6,7 @@
 	<body>
 		<h1>{{name}}</h1>
 		
-		 <div></div>{% for message in messages %}
+		 <div>{% for message in messages %}
 		 {{message.person}}: {{message.content}}
 		 <hr />
 		 {% endfor %}
