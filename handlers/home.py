@@ -13,9 +13,9 @@ class Handler(webapp2.RequestHandler):
   # Handles all HTTP GET requests sent to the '/' path.
   def get(self):
     
-    name = self.request.get('person')
-    messages = Message.query()
-    messages1 = Message.query(Message.person==team)
+    name = self.request.get('team')
+    messages = Message.query(Message.team==name)
+    messages1 = Message.query()
     template_values = {
       'name': 'Prattle', 
       'date': 'Today', 
@@ -26,6 +26,7 @@ class Handler(webapp2.RequestHandler):
 
   def post(self):
     name = self.request.get('moniker')
+    message1 = self.request.get('team')
     message = self.request.get('message')
-    Message(person=name, content=message).put()
+    Message(person=name, content=message, team=message1).put()
     render.TextResponse(name +"said " + message, self.response)                                                        
