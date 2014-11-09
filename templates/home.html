@@ -1,8 +1,36 @@
 <html>
 	<head>
 		<title>{{name}}'s Page</title>
-    	<link rel="stylesheet" type="text/css" href="css/main.css">	
+    	<link rel="stylesheet" type="text/css" href="css/main.css">
+    	<html>
+	<style>
+
+	menu ul {
+		margin: 0px;
+		padding: 0px;
+		list-style-type: none;
+		}
+
+	menu a{	
+		display: block;
+		width: 8em;
+		color: white;
+		background-color: #60A0A0;
+		text-decoration: none;
+		text-align: center;
+		}
+	menu a:hover {
+		background-color: #6666AA;
+		}
+	menu li{
+		float:left;
+		margin-right: .05em;
+		}
+
+
+   	</style>
     	</head>
+    	
 	<body>
 		<h1>{{name}}</h1>
 		<div>
@@ -12,8 +40,8 @@
 		 {% endfor %}
 		 
 		 <form action='/' method ='post' enctype = 'multipart/form-data'>
-			 Message: <input type= 'text' name='message'>
-			 Name:<input type='text' name='moniker'>
+			 Name: <input type= 'text' name='message'>
+			 Message:<input type='text' name='moniker'>
 			 <input type='submit' name='submit' value='Submit'>
 		</form>
 		</div>
@@ -23,8 +51,8 @@
 		 {% endfor %}
 		 
 		 <form action='/' method ='post' enctype = 'multipart/form-data'>
-			 Message: <input type= 'text' name='message'>
-			 Name:<input type='text' name='moniker'>
+			 Name: <input type= 'text' name='message'>
+			 Message:<input type='text' name='moniker'>
 			 <input type='submit' name='submit' value='Submit'>
 		</form>
 		</div>
