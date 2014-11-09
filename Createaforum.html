@@ -1,27 +1,86 @@
-<!DOCTYPE html>
 <html>
-		<title>Create a Forum</title>
-		<link type="text/css" rel="stylesheet" href="Createaforum.css" />
+	<head>
+		<title>{{name}}'s Page</title>
+    	<link rel="stylesheet" type="text/css" href="css/main.css">
+	<style>
+	#menu ul {
+		margin: 0px;
+		padding: 0px;
+		list-style-type: none;
+		}
+	#menu a{	
+		display: block;
+		width: 8em;
+		color: white;
+		background-color: #60A0A0;
+		text-decoration: none;
+		font-size: 150%;
+		text-align: center;
+		}
+	#menu a:hover {
+		background-color: #6666AA;
+		display:inline-block;
+		padding: 10px;
+		}
+	#menu li{
+		float:left;
+		display: inline;
+		margin-right: .05em;
+		}
+   	</style>
+    	</head>
+    	
 	<body>
-        <h1 class= "Ballin">Prattle</h1>
-        <div id = "menu">
-    <ul>
-	    <li> <a href = "prattledev.appspot.html" > Home </a> </li>
-	    <li> <a href = "Createaforum.html" > Create A Forum </a> </li>
-	    <li> <a href = "index.html" > Popular Forums </a> </li>
-            </ul>
-        </div>
-        <div>
-            <p>p</p> 
-            <p>p</p>
-            <p>p</p>
-            <p>p</p>
-            <p>p</p>
-        </div>
-        <div>
-			<a href="">Create a <span>Forum</span></a>
+	<div>
+		<img src= "https://33.media.tumblr.com/b20093da99687e0398b971ef0396dde9/tumblr_nerj36lBcQ1r2dvzyo1_250.png" /> 
+	</div>
+	<div style= "align = center;">
+	<div id="menu">
+	<ul style="align = center;">
+		<li> <a href = "http://prattledev.appspot.com" > Home </a> </li>
+		<li> <a href = "http://prattledev.appspot.com" > Create A Forum </a> </li>
+		<li> <a href = "index.html" > Popular Forums </a> </li>
+	</ul>
+	</div>
+	</div>
+		<div> <p> </p>
 		</div>
-	</body>
-</html>
-
-
+		<div>
+		 <div style = 'float:right; width: 50%'>
+			 {% for message in messages %}
+	     {% if message.team == 'TeamB' %}
+		 {{message.content}} : {{message.person}}
+	     
+		 <hr />
+         {% endif %}
+		 {% endfor %}
+		 
+		 <form action='/' method ='post' enctype = 'multipart/form-data'>
+			 Message: <input type= 'text' name='message'>
+			 Name:<input type='text' name='moniker'>
+			 <input type='hidden' name='team' value='TeamB'>
+			 <input type='submit' name='submit' value='Submit'>
+		</form>
+		</div>
+		<div style = 'float:left; width: 50%'>{% for message in messages %}
+	     {% if message.team == 'TeamA' %}
+		 {{message.content}} : {{message.person}}
+	     
+		 <hr />
+         {% endif %}
+		 {% endfor %}
+		 
+		 <form action='/' method ='post' enctype = 'multipart/form-data'>
+			 Message: <input type= 'text' name='message'>
+			 Name:<input type='text' name='moniker'>
+			 <input type='hidden' name='team' value='TeamA'>
+			 <input type='submit' name='submit' value='Submit'>
+		</form>
+		</div>
+		</div>
+		<div style="align:center">
+			<h1>&copyMaroonTigers</h1>
+		</div>
+		
+	   </body>
+    </html>
