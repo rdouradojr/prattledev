@@ -14,7 +14,7 @@ class Handler(webapp2.RequestHandler):
   def get(self):
     
     name = self.request.get('team')
-    messages = Message.query(Message.team==name)
+    messages = Message.query()
     messages1 = Message.query()
     template_values = {
       'name': 'Prattle', 
