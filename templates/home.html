@@ -1,86 +1,215 @@
 <html>
-	<head>
-		<title>{{name}}'s Page</title>
-    	<link rel="stylesheet" type="text/css" href="css/main.css">
-	<style>
-	#menu ul {
-		margin: 0px;
-		padding: 0px;
-		list-style-type: none;
-		}
-	#menu a{	
-		display: block;
-		width: 8em;
-		color: white;
-		background-color: #60A0A0;
-		text-decoration: none;
-		font-size: 150%;
-		text-align: center;
-		}
-	#menu a:hover {
-		background-color: #6666AA;
-		display:inline-block;
-		padding: 10px;
-		}
-	#menu li{
-		float:left;
-		display: inline;
-		margin-right: .05em;
-		}
-   	</style>
-    	</head>
-    	
-	<body>
-	<div>
-		<img src= "https://33.media.tumblr.com/b20093da99687e0398b971ef0396dde9/tumblr_nerj36lBcQ1r2dvzyo1_250.png" /> 
-	</div>
-	<div style= "align = center;">
-	<div id="menu">
-	<ul style="align = center;">
-		<li> <a href = "http://prattledev.appspot.com" > Home </a> </li>
-		<li> <a href = "http://prattledev.appspot.com" > Create A Forum </a> </li>
-		<li> <a href = "index.html" > Popular Forums </a> </li>
-	</ul>
-	</div>
-	</div>
-		<div> <p> </p>
-		</div>
-		<div>
-		 <div style = 'float:right; width: 50%'>
-			 {% for message in messages %}
-	     {% if message.team == 'TeamB' %}
-		 {{message.content}} : {{message.person}}
-	     
-		 <hr />
-         {% endif %}
-		 {% endfor %}
-		 
-		 <form action='/' method ='post' enctype = 'multipart/form-data'>
-			 Message: <input type= 'text' name='message'>
-			 Name:<input type='text' name='moniker'>
-			 <input type='hidden' name='team' value='TeamB'>
-			 <input type='submit' name='submit' value='Submit'>
-		</form>
-		</div>
-		<div style = 'float:left; width: 50%'>{% for message in messages %}
-	     {% if message.team == 'TeamA' %}
-		 {{message.content}} : {{message.person}}
-	     
-		 <hr />
-         {% endif %}
-		 {% endfor %}
-		 
-		 <form action='/' method ='post' enctype = 'multipart/form-data'>
-			 Message: <input type= 'text' name='message'>
-			 Name:<input type='text' name='moniker'>
-			 <input type='hidden' name='team' value='TeamA'>
-			 <input type='submit' name='submit' value='Submit'>
-		</form>
-		</div>
-		</div>
-		<div style="align:center">
-			<h1>&copyMaroonTigers</h1>
-		</div>
+<head>
+	
+<title>Prattle</title>
+
+
+<style>
+#content article img { 
+	max-width: 100%;
+	height: auto;
+}
+#content .right {
+	float: right;
+	margin: 0 0 20px 20px;
+}
+#content .left {
+	float: left;
+	margin: 0 20px 20px 0;
+}
+#content img.border {
+	padding: 9px;
+	background: #FFF;
+	border: 1px solid #E5E5E5;
+	-webkit-box-shadow: 1px 2px 3px #F5F5F5;
+	   -moz-box-shadow: 1px 1px 3px #F5F5F5;
+	        box-shadow: 1px 1px 3px #F5F5F5;
+}
+#content .img-wrap,
+#content .recipe .photo {
+	max-width: 100%;
+	margin-bottom: 20px;
+}
+#content .recipe .photo img { margin-bottom: 0; }
+#content .caption {
+	display: block;
+	padding-top: 5px;
+	font-size: .75em;
+	font-style: italic;
+	color: #AAA;
+}
+#content.blog article img { margin-bottom: 20px; }
+#content.blog article .img-wrap img { margin-bottom: 0; }
+#content img.border.large { width: 95%; }
+#content article a img {
+	-webkit-transition: opacity .2s ease;
+	   -moz-transition: opacity .2s ease;
+	     -o-transition: opacity .2s ease;
+	        transition: opacity .2s ease;
+}
+#content article a:hover img { opacity: .75; }
+/* ----- FEATURED ----- */
+#featured {
+	position: relative;
+	width: 100%;
+	height: 510px;
+}
+#featured #slides {
+	width: 712px; 
+	height: 446px;
+	overflow: hidden;
+}
+#featured section {
+	position: relative;
+	width: 896px;
+}
+#featured section img {
+	position: absolute;
+	left: -92px; 
+	width: 100%;
+}
+/* hide slides when js is disabled */
+#featured #slide-2,
+#featured #slide-3,
+#featured #slide-4 {
+	display: none;
+}
+#featured section h1,
+#featured section h2 {
+	position: absolute;
+	left: 0;
+	font-style: italic;
+}
+#featured section.alt h1,
+#featured section.alt h2 {
+	left: auto;
+	right: 184px;
+}
+#featured section h1 {
+	top: 285px;
+	padding: 10px 24px 15px;
+	color: #222;
+	background: #FFF;
+	font-size: 1.5em;
+}
+#featured section h2 {
+	top: 334px;
+	padding: 8px 24px 12px;
+	color: #E9E9E9;
+	font-weight: normal;
+	font-size: 1em;
+	background: #111;
+}
+#featured section a h1,
+#featured section a h2 {
+	-webkit-transition: opacity .2s ease;
+	   -moz-transition: opacity .2s ease;
+	     -o-transition: opacity .2s ease;
+	        transition: opacity .2s ease; 
+}
+#featured section a:hover h1,
+#featured section a:hover h2 {
+	opacity: .8;
+}
+#featured section .credit {
+	position: absolute;
+	right: 194px;
+	top: 417px;
+	padding: 4px 8px 6px;
+	font-size: .5em;
+	color: #555;
+	background: #F5F5F5;
+	background: rgba(255,255,255,.5);
+	text-shadow: 0 1px 0 rgba(255,255,255,.5);
+	-webkit-border-radius: 3px;
+	   -moz-border-radius: 3px;
+	        border-radius: 3px;
+}
+#featured section .credit a {
+	border-bottom: none;
+	background: none;
+	color: #555;
+}
+#featured section .credit a:hover { color: #EC6635; }
+.Ballin{
+color: blue;
+font-size: 400%;
+ font-family: 'Varela Round', sans-serif;
+ text-align: center;
+}
+.testClass {
+    color: blue;
+    font-size: 200%;
+    font-weight: bold;
+    font-family: 'fantasy', copperplate;
+    
+    border: 10px white;
+    padding: 20px;
+    margin: 100px;
+}
+.lax {
+	color: blue;
+    font-size: 75%;
+    font-family: 'fantasy', copperplate;
+    
+    border: 10px white;
+    padding: 20px;
+    margin: 100px;
+}
+#menu ul {
+	margin: 0px;
+	padding: 0px;
+	list-style-type: none;
+	
+}
+#menu a{
+	display: block;
+	width: 8em;
+	color: white;
+	background-color: #60A0A0;
+	text-decoration: none;
+	font-size: 150%;
+	text-align: center;
+}
+#menu a:hover {
+	background-color: #6666AA;
+	display:inline-block;
+	padding: 10px;
+}
+#menu li{
+	float:left;
+	display: inline;
+	margin-right: .05em;
+}
+   </style>
+   
+</head>
+
+<body>
+
+	
+	  <div><style> margin: 0 auto width:0px padding: 0 </style> <img src= "https://33.media.tumblr.com/b20093da99687e0398b971ef0396dde9/tumblr_nerj36lBcQ1r2dvzyo1_250.png"> </div>
+<div id = "menu">
+<ul>
+	<li> <a href = "prattledev.appspot.html" > Home </a> </li>
+	<li> <a href = "index.html" > Create A Forum </a> </li>
+	<li> <a href = "index.html" > Popular Forums </a> </li>
+</div>
+</ul>
+<div class="testClass"> Welcome to Prattle! Prattle is the social network for the talkers. To start, create your own forum.<div/>
+<div id="content">
+	<section id="featured">
+		<div id="slides">
 		
-	   </body>
-    </html>
+		<section id="slide-1" class="alt">
+		<img src="http://www.clicky.co.uk/wp-content/uploads/aminated-talking-people@2x.gif" alt="What's Cooking? " />
+		<a href="anything.html">
+		<h1>Start talking! </h1>
+		</a>
+		</section>
+	
+	
+	</div>
+<div class="lax">  &copyMaroonTigersInc. </div>
+  
+</html>
