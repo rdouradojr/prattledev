@@ -6,26 +6,26 @@
 	<body>
 		<h1>{{name}}</h1>
 		
-		 <div style = "margin: left">{% for message in messages %}
+		 <div style = 'margin: left'>{% for message in messages %}
 		 {{message.person}}: {{message.content}}
 		 <hr />
 		 {% endfor %}
 		 
 		 <form action='/' method ='post' enctype = 'multipart/form-data'>
-			 Message: <input type= "text"" name="message">
-			 Name:<input type="text" name="moniker">
-			 <input type="submit" name="submit" value="Submit">
+			 Message: <input type= 'text' name='message'>
+			 Name:<input type='text' name='moniker'>
+			 <input type='submit' name='submit' value='Submit'>
 		</form>
 		</div>
-		<div style = "margin:right">{% for message in messages %}
+		<div style = 'margin:right'>{% for message in messages %}
 		 {{message.person}}: {{message.content}}
 		 <hr />
 		 {% endfor %}
 		 
 		 <form action='/' method ='post' enctype = 'multipart/form-data'>
-			 Message: <input type= "text"" name="message">
-			 Name:<input type="text" name="moniker">
-			 <input type="submit" name="submit" value="Submit">
+			 Message: <input type= 'text' name='message'>
+			 Name:<input type='text' name='moniker'>
+			 <input type='submit' name='submit' value='Submit'>
 		</form>
 		</div>
 		
