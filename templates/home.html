@@ -6,7 +6,7 @@
 	<body>
 		<h1>{{name}}</h1>
 		
-		 <div>{% for message in messages %}
+		 <div "text-align: left">{% for message in messages %}
 		 {{message.person}}: {{message.content}}
 		 <hr />
 		 {% endfor %}
@@ -17,7 +17,7 @@
 			 <input type="submit" name="submit" value="Submit">
 		</form>
 		</div>
-		<div>{% for message in messages %}
+		<div "text-align:right">{% for message in messages %}
 		 {{message.person}}: {{message.content}}
 		 <hr />
 		 {% endfor %}
